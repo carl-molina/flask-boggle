@@ -14,9 +14,10 @@ class WordList:
         """
 
         self.words = self._read_dict(dict_path)
+        # ^ will run this at every instantiation of this class
 
     def __repr__(self):
-        return f"<WordList len={len(self.words)}>"
+        return f"<{self.__class__.__name__} WordList len={len(self.words)}>"
 
     def _read_dict(self, dict_path):
         """Read dictionary file at dict_path and return set of words."""
@@ -29,6 +30,9 @@ class WordList:
 
     def check_word(self, word):
         """Is word in word list?"""
+
+
+        # TODO: write doctests here
 
         return word in self.words
 

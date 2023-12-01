@@ -22,12 +22,23 @@ class BoggleAppTestCase(TestCase):
 
         with app.test_client() as client:
             response = client.get('/')
-            ...
-            # test that you're getting a template
+
+            html = response.get_data(as_text=True)
+
+            self.assertEqual(response.status_code, 200)
+            self.assertIn('<button class="word-input-btn">Go</button>', html)
+            self.assertIn('<script src="/static/boggle.js"></script>', html)
+
+            # FIXME: where/what is the session/in the session?
 
     def test_api_new_game(self):
         """Test starting a new game."""
 
         with app.test_client() as client:
             ...
+
             # write a test for this route
+
+            # TODO: write a test here for new_game() from app.py
+
+

@@ -18,6 +18,9 @@ class BoggleGame():
                  board_size=5,
                  fill_letters=DEFAULT_LETTERS_BY_FREQ,
                  word_length_scores={3: 1, 4: 1, 5: 2, 6: 3, 7: 5},
+                 # If it's over 7 characters, score word w/ 11
+                 # aka max_word_length_score \/
+                 # note potential cases when user tries 1-2 char submits
                  max_word_length_score=11,
                  ):
         """Create empty board and fill with random letters.
@@ -67,6 +70,8 @@ class BoggleGame():
 
         self.board = self.get_random_board(fill_letters)
         self.played_words = set()
+        # no duplicates allowed after a word is submitted
+
         self.score = 0
 
     def __repr__(self):
@@ -88,6 +93,7 @@ class BoggleGame():
         """Score a Boggle word and add to played words. Returns game score."""
 
         assert len(word) >= 3, "1- or 2-letter words shouldn't have been legal"
+        # ^ this checks if the word being passed in is >= 3 chars
 
         word_score = self.word_length_scores.get(
             len(word), self.max_word_length_score)
@@ -188,6 +194,7 @@ class BoggleGame():
         seen = seen | {(y, x)}
 
         rest_of_word = word[1:]
+        # slicing off first letter of word
 
         # Search every letter (horiz, vert, diagonal) from here
         for dx in [-1, 0, +1]:
