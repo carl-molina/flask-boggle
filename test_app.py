@@ -37,11 +37,25 @@ class BoggleAppTestCase(TestCase):
         """Test starting a new game."""
 
         with app.test_client() as client:
-            response = client.get('/api/new-game')
+            response = client.post('/api/new-game')
 
-            json = response.get_json()
+            json_true_false = response.is_json
 
-            #Test if return is json
-            #Test if json is made up of string and list of list
-            #Test if games dictionary increased by 1
+            print('This is boolean for json', json_true_false)
 
+            # old code for reference:
+            # print('This is dir(response', dir(response))
+            # breakpoint()
+
+
+
+
+            # TODO: Test if return is json
+
+            # TODO: Test if json is made up of string and list of list
+
+            # TODO: Test if games dictionary increased by 1
+
+            # self.assertEqual(games[game_id], 1)
+
+            # 1 to be replaced w/ incremented number of games in games dict
