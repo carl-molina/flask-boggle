@@ -26,8 +26,10 @@ class BoggleAppTestCase(TestCase):
             html = response.get_data(as_text=True)
 
             self.assertEqual(response.status_code, 200)
-            self.assertIn('<button class="word-input-btn">Go</button>', html)
-            self.assertIn('<script src="/static/boggle.js"></script>', html)
+            # Be careful on specificity of tests and make sure html really is
+            # unique to the homepage. CAN TEST FOR COMMENTS!
+            self.assertIn('<!-- Test: Homepage -->', html)
+            self.assertIn('<script src="/static/boggle.js">', html)
 
             # FIXME: where/what is the session/in the session?
 
