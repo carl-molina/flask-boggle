@@ -37,10 +37,11 @@ class BoggleAppTestCase(TestCase):
         """Test starting a new game."""
 
         with app.test_client() as client:
-            ...
+            response = client.get('/api/new-game')
 
-            # write a test for this route
+            json = response.get_json()
 
-            # TODO: write a test here for new_game() from app.py
-
+            #Test if return is json
+            #Test if json is made up of string and list of list
+            #Test if games dictionary increased by 1
 
