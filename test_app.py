@@ -86,6 +86,7 @@ class BoggleAppTestCase(TestCase):
                                 json={'game_id': '12345', "word": "DOG"})
             print('This is resp3', resp3)
 
+            # not JSON, this is a dictionary, can be called "answer", "result"
             resp_json1 = resp1.get_json()
             self.assertEqual(resp_json1, {"result": "not-word"})
 

@@ -23,12 +23,6 @@ async function start() {
   displayBoard(board);
 }
 
-
-
-
-
-
-
 /** Display board */
 
 function displayBoard(board) {
@@ -47,6 +41,5 @@ function displayBoard(board) {
 
 
 }
-
 
 start();
