@@ -17,18 +17,27 @@ async function start() {
   });
   const gameData = await response.json();
 
-  gameId = gameData.gameId;
+  gameId = gameData.game_id;
   let board = gameData.board;
 
   displayBoard(board);
 }
 
 
+
+
+
+
+
 /** Display board */
 
 function displayBoard(board) {
-  // $table.empty();
+  $table.empty();
   // loop over board and create the DOM tr/td structure
+
+  // TODO: use jQuery to create board
+  // For loop y values
+  //    for loop x values
 }
 
 
